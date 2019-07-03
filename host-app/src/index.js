@@ -20,12 +20,6 @@ import store from './redux/store'
 //     total: 10000
 // }))
 
-// store.dispatch(addDesign({
-//     id: 'xxx-xxxx-xxx',
-//     productLine: 'windows',
-//     total: 5000
-// }))
-
 ReactDOM.render(
     <Provider store={store}>
         <App />
