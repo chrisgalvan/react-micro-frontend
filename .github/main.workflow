@@ -11,7 +11,7 @@ action "Check host-app" {
 action "GitHub Action for npm" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   needs = ["Check host-app"]
-  args = "cd host-app && npm i && npm run build"
+  args = "cd host-app && npm install && npm run build"
 }
 
 action "netlify" {
