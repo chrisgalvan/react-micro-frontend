@@ -6,7 +6,6 @@ import App from './App';
 import './index.css';
 import store from './redux/store'
 
-// // XXX TESTING WITH ADDED DESIGNS XXX
 // import { addDesign } from './redux/actions/core.actions';
 
 // // Log the initial state
