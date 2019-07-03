@@ -5,12 +5,12 @@ workflow "Build & Deploy" {
 
 action "Check host-app" {
   uses = "wcchristian/gh-pattern-filter-action@master"
-  args = "./host-app/**"
+  args = "./host-app/*"
 }
 
 action "Check micro-apps" {
   uses = "wcchristian/gh-pattern-filter-action@master"
-  args = "./micro-apps/**"
+  args = "./micro-apps/*"
 }
 
 action "GitHub Action for npm" {
