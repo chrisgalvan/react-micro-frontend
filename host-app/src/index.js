@@ -32,8 +32,6 @@ import store from './redux/store'
 // // Stop listening to state updates
 // unsubscribe()
 
-// // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
 ReactDOM.render(
     <Provider store={store}>
         <App />
