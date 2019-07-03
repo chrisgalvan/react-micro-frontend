@@ -28,9 +28,6 @@ import store from './redux/store'
 //     total: 5000
 // }))
 
-// // Stop listening to state updates
-// unsubscribe()
-
 ReactDOM.render(
     <Provider store={store}>
         <App />
