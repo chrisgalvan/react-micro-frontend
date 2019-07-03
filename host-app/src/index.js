@@ -5,9 +5,6 @@ import { Provider } from 'react-redux'
 import App from './App';
 import './index.css';
 import store from './redux/store'
-
-// // Log the initial state
-// console.log(store.getState())
   
 // // Every time the state changes, log it
 // // Note that subscribe() returns a function for unregistering the listener
