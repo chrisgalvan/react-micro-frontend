@@ -5,7 +5,7 @@ workflow "Build & Deploy" {
 
 action "Check host-app" {
   uses = "wcchristian/gh-pattern-filter-action@master"
-  args = "./host-app/*"
+  args = "host-app/*"
 }
 
 action "GitHub Action for npm" {
