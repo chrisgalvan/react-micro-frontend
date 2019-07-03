@@ -13,13 +13,6 @@ import store from './redux/store'
 // // Note that subscribe() returns a function for unregistering the listener
 // const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
-// // Dispatch some actions
-// store.dispatch(addDesign({
-//     id: 'xxx-xxxx-xxx',
-//     productLine: 'countertops',
-//     total: 10000
-// }))
-
 ReactDOM.render(
     <Provider store={store}>
         <App />
