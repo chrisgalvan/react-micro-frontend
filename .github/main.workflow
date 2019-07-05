@@ -14,7 +14,7 @@ action "GitHub Action for npm install" {
 action "GitHub Action for npm build" {
   uses = "Tgjmjgj/npm@specify-workspace-directory"
   needs = ["GitHub Action for npm install"]
-  args = "build"
+  args = "run build"
   env = {
     DIR = "host-app"
   }
