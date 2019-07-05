@@ -3,24 +3,36 @@ workflow "Build & Deploy" {
   on = "push"
 }
 
-action "Check host-app" {
-  uses = "wcchristian/gh-pattern-filter-action@master"
-  args = "host-app/*"
+action "GitHub Action for npm install" {
+  uses = "Tgjmjgj/npm@specify-workspace-directory"
+  args = "install"
+  env = {
+    DIR = "host-app"
+  }
 }
 
-action "GitHub Action for npm" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["Check host-app"]
-  args = "cd host-app && npm install && npm run build"
+action "GitHub Action for npm build" {
+  uses = "Tgjmjgj/npm@specify-workspace-directory"
+  needs = ["GitHub Action for npm install"]
+  args = "build"
+  env = {
+    DIR = "host-app"
+  }
+}
+
+action "Check host-app" {
+  uses = "wcchristian/gh-pattern-filter-action@master"
+  needs = ["GitHub Action for npm build"]
+  args = "host-app/*"
 }
 
 action "netlify" {
   uses = "netlify/actions/cli@master"
-  needs = ["GitHub Action for npm"]
+  needs = ["Check host-app"]
   runs = "host-app"
-  args = "deploy --dir=public"
+  args = "deploy --dir=build"
   env = {
     NETLIFY_AUTH_TOKEN = "b05784ba6e0c5d503fc59c80430d557c0202bab3551579a280e1317762debdb7"
-    NETLIFY_SITE_ID = "ce1db875-407e-493e-a6fe-1cbb3ec87377"
+    NETLIFY_SITE_ID = "06a4d13a-6498-449c-8ff5-bc5429c1c955"
   }
 }
